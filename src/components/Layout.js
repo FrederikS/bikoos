@@ -12,7 +12,7 @@ const styles = () => ({
 const Layout = ({ classes, children }) => {
   return (
     <AppBar>
-      <main className={classes.root} style={{ padding: '80px 20px' }}>
+      <main className={classes.root} style={{ padding: '80px 20px', maxWidth: '800px' }}>
         {children}
       </main>
     </AppBar>

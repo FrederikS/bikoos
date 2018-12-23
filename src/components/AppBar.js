@@ -15,6 +15,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
+import { Link } from "gatsby"
 
 const drawerWidth = 240
 
@@ -65,13 +66,13 @@ class ResponsiveDrawer extends React.Component {
     const drawer = (
       <div>
         <List>
-          <ListItem button component="a" key="home" href="/">
+          <ListItem button component={Link} key="home" to="/">
             <ListItemIcon>
                 <HomeIcon />
             </ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
-          <ListItem button component="a" key="about" href="/404">
+          <ListItem button component={Link} key="about" to="/404">
             <ListItemIcon>
                 <InfoIcon />
             </ListItemIcon>
