@@ -18,6 +18,7 @@ export const query = graphql`
     allDatoCmsProduct {
       edges {
         node {
+          id
           title
           description
           price

@@ -5461,6 +5461,11 @@ gatsby-plugin-sharp@^2.0.14:
     sharp "^0.21.0"
     svgo "^0.7.2"
 
+gatsby-plugin-snipcart@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-snipcart/-/gatsby-plugin-snipcart-1.0.6.tgz#21460b958980e7f7b335874522ae07187dd1840f"
+  integrity sha512-CrefXosRZA/j0oF940VUkKGWAEUpurBE6iA6HrD3Z+6cBHT/dXY9EkViIvxsbfU1wyJPnyB5pDTZtCaqGbKRog==
+
 gatsby-react-router-scroll@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/gatsby-react-router-scroll/-/gatsby-react-router-scroll-2.0.2.tgz#d8046ce2f3bfa52ef6ec55804007d976b0bb6bef"
@@ -5492,7 +5497,7 @@ gatsby-source-datocms@^2.0.1:
     request-promise-native "1.0.5"
     svg-inline-loader "0.8.0"
 
-gatsby-source-filesystem@^2.0.8:
+gatsby-source-filesystem@^2.0.12:
   version "2.0.12"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.12.tgz#2d447f547a575fd6b867bce4381b2d1abbee61d1"
   integrity sha512-IRqGdOXZMkpQASR653WgdCyfOnRutS+3/VXm35ULyG+6p/AZDHR79K2beHH3wHeQkypnsjwMHTi3cnxyaij+ug==
