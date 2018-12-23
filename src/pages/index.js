@@ -1,21 +1,41 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+import Layout from '../components/Layout'
 
-import Layout from '../components/layout'
-import Image from '../components/image'
-import SEO from '../components/seo'
+const styles = theme => ({
+  paper: {
+    padding: theme.spacing.unit * 2,
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }
+})
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const IndexPage = ({ classes }) => {
+  return (
+    <Layout>
+      <Grid container spacing={24}>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>xs=6</Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>xs=6</Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>xs=6</Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>xs=6</Paper>
+        </Grid>
+      </Grid>
+    </Layout>
+  )
+}
 
-export default IndexPage
+IndexPage.propTypes = {
+  classes: PropTypes.object.isRequired,
+}
+
+export default withStyles(styles)(IndexPage)
