@@ -109,6 +109,7 @@ class ResponsiveDrawer extends React.Component {
               variant="temporary"
               anchor={theme.direction === 'rtl' ? 'right' : 'left'}
               open={this.state.mobileOpen}
+              onOpen={this.handleDrawerToggle}
               onClose={this.handleDrawerToggle}
               classes={{
                 paper: classes.drawerPaper,
@@ -125,8 +126,6 @@ class ResponsiveDrawer extends React.Component {
                 paper: classes.drawerPaper,
               }}
               variant="permanent"
-              disableBackdropTransition={!iOS}
-              disableDiscovery={iOS}
               open
             >
               {drawer}
