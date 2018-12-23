@@ -44,7 +44,7 @@ const ProductCard = props => {
           data-item-price={product.price}
           data-item-image={product.images[0].sizes.src}
           data-item-name={product.title}
-          data-item-url={`/`}
+          data-item-url="/"
         >
           Buy
         </Button>

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import AppBar from '@material-ui/core/AppBar'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import Drawer from '@material-ui/core/Drawer'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import Hidden from '@material-ui/core/Hidden'
 import IconButton from '@material-ui/core/IconButton'
 import HomeIcon from '@material-ui/icons/Home'
@@ -15,7 +15,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
-import { Link } from "gatsby"
+import { Link } from 'gatsby'
 
 const drawerWidth = 240
 
@@ -62,19 +62,20 @@ class ResponsiveDrawer extends React.Component {
 
   render() {
     const { classes, theme, children } = this.props
+    const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
 
     const drawer = (
       <div>
         <List>
           <ListItem button component={Link} key="home" to="/">
             <ListItemIcon>
-                <HomeIcon />
+              <HomeIcon />
             </ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
           <ListItem button component={Link} key="about" to="/404">
             <ListItemIcon>
-                <InfoIcon />
+              <InfoIcon />
             </ListItemIcon>
             <ListItemText primary="About" />
           </ListItem>
@@ -103,7 +104,7 @@ class ResponsiveDrawer extends React.Component {
         <nav className={classes.drawer}>
           {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
           <Hidden smUp implementation="css">
-            <Drawer
+            <SwipeableDrawer
               container={this.props.container}
               variant="temporary"
               anchor={theme.direction === 'rtl' ? 'right' : 'left'}
@@ -112,20 +113,24 @@ class ResponsiveDrawer extends React.Component {
               classes={{
                 paper: classes.drawerPaper,
               }}
+              disableBackdropTransition={!iOS}
+              disableDiscovery={iOS}
             >
               {drawer}
-            </Drawer>
+            </SwipeableDrawer>
           </Hidden>
           <Hidden xsDown implementation="css">
-            <Drawer
+            <SwipeableDrawer
               classes={{
                 paper: classes.drawerPaper,
               }}
               variant="permanent"
+              disableBackdropTransition={!iOS}
+              disableDiscovery={iOS}
               open
             >
               {drawer}
-            </Drawer>
+            </SwipeableDrawer>
           </Hidden>
         </nav>
         {children}
