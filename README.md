@@ -1,4 +1,4 @@
-#gatesby-shop-poc
+# gatesby-shop-poc
 
 ## technologies
 
