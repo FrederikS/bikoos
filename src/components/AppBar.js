@@ -73,7 +73,7 @@ class ResponsiveDrawer extends React.Component {
             </ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
-          <ListItem button component={Link} key="about" to="/404">
+          <ListItem button component={Link} key="about" to="/about">
             <ListItemIcon>
               <InfoIcon />
             </ListItemIcon>

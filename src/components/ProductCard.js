@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+import Img from 'gatsby-image'
 
 const styles = {
   card: {
@@ -25,7 +26,8 @@ const ProductCard = props => {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={product.images[0].sizes.src}
+          component={Img}
+          sizes={product.images[0].sizes}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">

@@ -8,6 +8,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -29,7 +30,18 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `@wapps/gatsby-plugin-material-ui`,
+    {
+      resolve: `@wapps/gatsby-plugin-material-ui`,
+      options: {
+        // Add any options here
+        theme: {
+          typography: {
+            // In Japanese the characters are usually larger.
+            fontSize: 16,
+          },
+        },
+      },
+    },
     {
       resolve: `gatsby-source-datocms`,
       options: {
@@ -39,7 +51,7 @@ module.exports = {
         // If you are working on development/staging environment, you might want to
         // preview the latest version of records instead of the published one:
         previewMode: false,
-  
+
         // Disable automatic reloading of content when some change occurs on DatoCMS:
         disableLiveReload: false,
       },
@@ -48,8 +60,8 @@ module.exports = {
       resolve: 'gatsby-plugin-snipcart',
       options: {
         apiKey: process.env.SNIPCART_API_TOKEN,
-        autopop: true
-      }
+        autopop: true,
+      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
