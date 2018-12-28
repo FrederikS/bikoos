@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import AppBar from '@material-ui/core/AppBar'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
-import Hidden from '@material-ui/core/Hidden'
 import IconButton from '@material-ui/core/IconButton'
 import HomeIcon from '@material-ui/icons/Home'
 import InfoIcon from '@material-ui/icons/Info'
@@ -23,23 +22,11 @@ const styles = theme => ({
   root: {
     display: 'flex',
   },
-  drawer: {
-    [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-  },
   appBar: {
     marginLeft: drawerWidth,
-    [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-    },
   },
   menuButton: {
     marginRight: 20,
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
-    },
   },
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
@@ -101,36 +88,23 @@ class ResponsiveDrawer extends React.Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <nav className={classes.drawer}>
+        <nav>
           {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-          <Hidden smUp implementation="css">
-            <SwipeableDrawer
-              container={this.props.container}
-              variant="temporary"
-              anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-              open={this.state.mobileOpen}
-              onOpen={this.handleDrawerToggle}
-              onClose={this.handleDrawerToggle}
-              classes={{
-                paper: classes.drawerPaper,
-              }}
-              disableBackdropTransition={!iOS}
-              disableDiscovery={iOS}
-            >
-              {drawer}
-            </SwipeableDrawer>
-          </Hidden>
-          <Hidden xsDown implementation="css">
-            <SwipeableDrawer
-              classes={{
-                paper: classes.drawerPaper,
-              }}
-              variant="permanent"
-              open
-            >
-              {drawer}
-            </SwipeableDrawer>
-          </Hidden>
+          <SwipeableDrawer
+            container={this.props.container}
+            variant="temporary"
+            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+            open={this.state.mobileOpen}
+            onOpen={this.handleDrawerToggle}
+            onClose={this.handleDrawerToggle}
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            disableBackdropTransition={!iOS}
+            disableDiscovery={iOS}
+          >
+            {drawer}
+          </SwipeableDrawer>
         </nav>
         {children}
       </div>

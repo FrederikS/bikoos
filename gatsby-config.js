@@ -37,6 +37,7 @@ module.exports = {
         theme: {
           typography: {
             // In Japanese the characters are usually larger.
+            useNextVariants: true,
             fontSize: 16,
           },
         },

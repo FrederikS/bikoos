@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
-import Paper from '@material-ui/core/Paper'
 import Layout from '../components/Layout'
 import Img from 'gatsby-image'
 import Avatar from '@material-ui/core/Avatar'
@@ -18,7 +17,11 @@ const styles = theme => ({
   avatar: {
     width: 190,
     height: 190,
-    marginBottom: '-50px'
+  },
+  hero: {
+      marginTop: -theme.spacing.unit * 3,
+      marginLeft: -theme.spacing.unit * 3,
+      marginRight: -theme.spacing.unit * 3,
   },
 })
 
@@ -26,9 +29,12 @@ const AboutPage = ({ classes, data: { about } }) => {
   return (
     <Layout>
       <Grid container>
-        <Grid container spacing={16} direction="row-reverse">
+        <Grid container spacing={16} alignItems="center">
           <Hidden only="xs">
-            <Grid item md={4} sm={6}>
+            <Grid item xs={8}>
+              <Typography variant="h1">About Me</Typography>
+            </Grid>
+            <Grid item xs={4}>
               <Avatar
                 className={classes.avatar}
                 component={Img}
@@ -38,7 +44,10 @@ const AboutPage = ({ classes, data: { about } }) => {
           </Hidden>
           <Hidden smUp>
             <Grid item xs={12}>
-              <Img fluid={about.avatar.sizes} />
+              <Img className={classes.hero} fluid={about.avatar.sizes} />
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="h3">About Me</Typography>
             </Grid>
           </Hidden>
         </Grid>
