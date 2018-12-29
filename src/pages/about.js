@@ -28,7 +28,7 @@ const styles = theme => ({
 
 const AboutPage = ({ classes, data: { about } }) => {
   return (
-    <Layout>
+    <Layout seo={about.seoMetaTags}>
       <Grid container>
         <Grid container spacing={16} alignItems="center">
           <Hidden only="xs">
@@ -76,6 +76,9 @@ export const query = graphql`
         childMarkdownRemark {
           html
         }
+      }
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
       }
     }
   }
