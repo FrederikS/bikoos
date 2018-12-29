@@ -16,6 +16,7 @@
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-sharp": "^2.0.14",
     "gatsby-plugin-snipcart": "^1.0.6",
+    "gatsby-remark-images": "^3.0.1",
     "gatsby-source-datocms": "^2.0.1",
     "gatsby-source-filesystem": "^2.0.12",
     "gatsby-transformer-remark": "^2.1.17",

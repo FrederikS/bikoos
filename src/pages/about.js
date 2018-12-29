@@ -7,6 +7,7 @@ import Img from 'gatsby-image'
 import Avatar from '@material-ui/core/Avatar'
 import Typography from '@material-ui/core/Typography'
 import Hidden from '@material-ui/core/Hidden'
+import RichTextContent from '../components/RichTextContent'
 
 const styles = theme => ({
   root: {
@@ -19,9 +20,9 @@ const styles = theme => ({
     height: 190,
   },
   hero: {
-      marginTop: -theme.spacing.unit * 3,
-      marginLeft: -theme.spacing.unit * 3,
-      marginRight: -theme.spacing.unit * 3,
+    marginTop: -theme.spacing.unit * 3,
+    marginLeft: -theme.spacing.unit * 3,
+    marginRight: -theme.spacing.unit * 3,
   },
 })
 
@@ -52,11 +53,8 @@ const AboutPage = ({ classes, data: { about } }) => {
           </Hidden>
         </Grid>
         <Grid item xs={12}>
-          <Typography
-            component="div"
-            dangerouslySetInnerHTML={{
-              __html: about.descriptionNode.childMarkdownRemark.html,
-            }}
+          <RichTextContent
+            htmlContent={about.descriptionNode.childMarkdownRemark.html}
           />
         </Grid>
       </Grid>
