@@ -5,7 +5,7 @@ Todo:
   ☐ Product detail page
   ☐ transitions
   ☐ content links
-  ☐ cart in app bar
+  ✔ cart in app bar @done(18-12-30 17:50)
   ☐ reduce number of js files
   ☐ offline plugin + add app consent
   ☐ detail page image gallery
@@ -13,7 +13,8 @@ Todo:
   ☐ SEO fixes (page structure, image alt tags/captions, keywords.., lang)
   ☐ purge css plugin
   ☐ order mail notifications
-  ☐ price in product cards
+  ✔ price in product cards @done(18-12-30 17:50)
   ☐ activate http 2
   ☐ remove console warn error
+  ☐ cart state when moving between pages
 

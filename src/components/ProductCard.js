@@ -8,17 +8,24 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
+import AddToCartIcon from '@material-ui/icons/AddShoppingCart'
 import Img from 'gatsby-image'
+import classNames from 'classnames'
 
-const styles = {
+const styles = theme => ({
   card: {
     maxWidth: 345,
   },
   media: {
     height: 250,
   },
-}
+  iconLeft: {
+    marginRight: theme.spacing.unit,
+  },
+  buyButton: {
+    marginLeft: 'auto',
+  },
+})
 
 const ProductCard = props => {
   const { classes, product } = props
@@ -38,26 +45,25 @@ const ProductCard = props => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Grid container alignItems="center" justify="space-between">
-          <Grid item>
-            <Typography variant="subheadline">{product.price} €</Typography>
-          </Grid>
-          <Grid>
-            <Button
-              href="#"
-              size="small"
-              color="primary"
-              className="Product snipcart-add-item"
-              data-item-id={product.id}
-              data-item-price={product.price}
-              data-item-image={product.images[0].sizes.src}
-              data-item-name={product.title}
-              data-item-url="/"
-            >
-              Buy
-            </Button>
-          </Grid>
-        </Grid>
+        <Button
+          variant="outlined"
+          href="#"
+          size="small"
+          color="primary"
+          className={classNames(
+            classes.buyButton,
+            'Product',
+            'snipcart-add-item'
+          )}
+          data-item-id={product.id}
+          data-item-price={product.price}
+          data-item-image={product.images[0].sizes.src}
+          data-item-name={product.title}
+          data-item-url="/"
+        >
+          <AddToCartIcon className={classes.iconLeft} />
+          <Typography color="inherit">{product.price} €</Typography>
+        </Button>
       </CardActions>
     </Card>
   )
