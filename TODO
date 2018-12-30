@@ -2,7 +2,18 @@
 Todo:
   ☐ rich text styling
   ✔ SEO @done(18-12-29 22:17)
-  ☐ Product page
+  ☐ Product detail page
   ☐ transitions
   ☐ content links
   ☐ cart in app bar
+  ☐ reduce number of js files
+  ☐ offline plugin + add app consent
+  ☐ detail page image gallery
+  ☐ get rid of jquery? (snipcart alternative)
+  ☐ SEO fixes (page structure, image alt tags/captions, keywords.., lang)
+  ☐ purge css plugin
+  ☐ order mail notifications
+  ☐ price in product cards
+  ☐ activate http 2
+  ☐ remove console warn error
+
