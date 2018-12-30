@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
 import Img from 'gatsby-image'
 
 const styles = {
@@ -37,19 +38,26 @@ const ProductCard = props => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button
-          href="#"
-          size="small"
-          color="primary"
-          className="Product snipcart-add-item"
-          data-item-id={product.id}
-          data-item-price={product.price}
-          data-item-image={product.images[0].sizes.src}
-          data-item-name={product.title}
-          data-item-url="/"
-        >
-          Buy
-        </Button>
+        <Grid container alignItems="center" justify="space-between">
+          <Grid item>
+            <Typography variant="subheadline">{product.price} €</Typography>
+          </Grid>
+          <Grid>
+            <Button
+              href="#"
+              size="small"
+              color="primary"
+              className="Product snipcart-add-item"
+              data-item-id={product.id}
+              data-item-price={product.price}
+              data-item-image={product.images[0].sizes.src}
+              data-item-name={product.title}
+              data-item-url="/"
+            >
+              Buy
+            </Button>
+          </Grid>
+        </Grid>
       </CardActions>
     </Card>
   )
