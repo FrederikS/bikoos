@@ -60,13 +60,25 @@ class ResponsiveDrawer extends React.Component {
     const drawer = (
       <div>
         <List>
-          <ListItem button component={Link} key="home" to="/">
+          <ListItem
+            button
+            component={Link}
+            key="home"
+            to="/"
+            onClick={this.handleDrawerToggle}
+          >
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
-          <ListItem button component={Link} key="about" to="/about">
+          <ListItem
+            button
+            component={Link}
+            key="about"
+            to="/about"
+            onClick={this.handleDrawerToggle}
+          >
             <ListItemIcon>
               <InfoIcon />
             </ListItemIcon>
