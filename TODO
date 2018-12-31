@@ -16,5 +16,6 @@ Todo:
   ✔ price in product cards @done(18-12-30 17:50)
   ☐ activate http 2
   ☐ remove console warn error
-  ☐ cart state when moving between pages
+  ✔ cart state when moving between pages @done(18-12-31 12:44)
+  ☐ SSR
 
