@@ -70,7 +70,7 @@ class ResponsiveDrawer extends React.Component {
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
-            <ListItemText primary="Home" />
+            <ListItemText primary="Produkte" />
           </ListItem>
           <ListItem
             button
