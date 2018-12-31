@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography'
 import AddToCartIcon from '@material-ui/icons/AddShoppingCart'
 import Img from 'gatsby-image'
 import classNames from 'classnames'
+import { Link } from 'gatsby'
 
 const styles = theme => ({
   card: {
@@ -31,7 +32,7 @@ const ProductCard = props => {
   const { classes, product } = props
   return (
     <Card className={classes.card}>
-      <CardActionArea>
+      <CardActionArea component={Link} to={`/details/${product.slug}`}>
         <CardMedia
           className={classes.media}
           component={Img}
@@ -41,7 +42,7 @@ const ProductCard = props => {
           <Typography gutterBottom variant="h5" component="h2">
             {product.title}
           </Typography>
-          <Typography component="p">{product.description}</Typography>
+          <Typography component="p">{product.excerpt}</Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>

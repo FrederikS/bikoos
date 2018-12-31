@@ -19,4 +19,5 @@ Todo:
   ✔ cart state when moving between pages @done(18-12-31 12:44)
   ☐ SSR
   ☐ cart with 0 items should be invisible
+  ☐ remark images from cms
 

@@ -17,7 +17,8 @@ export const query = graphql`
         node {
           id
           title
-          description
+          excerpt
+          slug
           price
           images {
             sizes(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
