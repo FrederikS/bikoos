@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import IconButton from '@material-ui/core/IconButton'
-import HomeIcon from '@material-ui/icons/Home'
+import ListIcon from '@material-ui/icons/List'
 import InfoIcon from '@material-ui/icons/Info'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -68,7 +68,7 @@ class ResponsiveDrawer extends React.Component {
             onClick={this.handleDrawerToggle}
           >
             <ListItemIcon>
-              <HomeIcon />
+              <ListIcon />
             </ListItemIcon>
             <ListItemText primary="Produkte" />
           </ListItem>
