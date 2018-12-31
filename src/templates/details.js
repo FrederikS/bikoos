@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 import AddToCartIcon from '@material-ui/icons/AddShoppingCart'
 import classNames from 'classnames'
+import Img from 'gatsby-image'
 import RichTextConent from '../components/RichTextContent'
 
 const styles = theme => ({
@@ -16,13 +17,21 @@ const styles = theme => ({
     bottom: theme.spacing.unit * 2,
     right: theme.spacing.unit * 2,
   },
+  hero: {
+    marginTop: -theme.spacing.unit * 3,
+    marginLeft: -theme.spacing.unit * 3,
+    marginRight: -theme.spacing.unit * 3,
+    marginBottom: theme.spacing.unit * 3,
+    maxHeight: 250
+  },
 })
 
 const DetailPage = ({ classes, data: { product } }) => {
   return (
     <article>
       <HelmetDatoCms seo={product.seoMetaTags} />
-      <Typography variant="h1">{product.title}</Typography>
+      <Img className={classes.hero} fluid={product.images[0].sizes} />
+      <Typography variant="h3">{product.title}</Typography>
       <RichTextConent
         htmlContent={product.detailsNode.childMarkdownRemark.html}
       />
