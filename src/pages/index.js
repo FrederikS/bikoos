@@ -1,13 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
 import ProductList from '../components/ProductList'
 
-const IndexPage = ({data}) => {
+const IndexPage = ({ data }) => {
   return (
-    <Layout>
-      <ProductList products={data.allDatoCmsProduct.edges.map(e => e.node)} />
-    </Layout>
+    <ProductList products={data.allDatoCmsProduct.edges.map(e => e.node)} />
   )
 }
 

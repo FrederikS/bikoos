@@ -71,6 +71,12 @@ module.exports = {
         autopop: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/Layout`),
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

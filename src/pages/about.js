@@ -2,11 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
-import Layout from '../components/Layout'
 import Img from 'gatsby-image'
 import Avatar from '@material-ui/core/Avatar'
 import Typography from '@material-ui/core/Typography'
 import Hidden from '@material-ui/core/Hidden'
+import { HelmetDatoCms } from 'gatsby-source-datocms'
 import RichTextContent from '../components/RichTextContent'
 
 const styles = theme => ({
@@ -28,7 +28,8 @@ const styles = theme => ({
 
 const AboutPage = ({ classes, data: { about } }) => {
   return (
-    <Layout seo={about.seoMetaTags}>
+    <React.Fragment>
+      <HelmetDatoCms seo={about.seoMetaTags} />
       <Grid container>
         <Grid container spacing={16} alignItems="center">
           <Hidden only="xs">
@@ -58,7 +59,7 @@ const AboutPage = ({ classes, data: { about } }) => {
           />
         </Grid>
       </Grid>
-    </Layout>
+    </React.Fragment>
   )
 }
 
