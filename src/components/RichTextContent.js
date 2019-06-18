@@ -2,7 +2,7 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import '../styles/richtext.css'
 
-const RichTextConent = ({ htmlContent }) => {
+const RichTextContent = ({ htmlContent }) => {
   return (
     <Typography
       component="div"
@@ -13,4 +13,4 @@ const RichTextConent = ({ htmlContent }) => {
   )
 }
 
-export default RichTextConent
+export default RichTextContent

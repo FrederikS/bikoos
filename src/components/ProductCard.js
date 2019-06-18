@@ -74,7 +74,7 @@ ProductCard.propTypes = {
   classes: PropTypes.object.isRequired,
   product: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    excerpt: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     images: PropTypes.array.isRequired,
   }).isRequired,
