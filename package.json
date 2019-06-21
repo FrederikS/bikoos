@@ -19,6 +19,7 @@
     "gatsby-plugin-snipcart": "^1.0.6",
     "gatsby-remark-images": "^3.1.0",
     "gatsby-remark-relative-images": "^0.2.2",
+    "gatsby-source-contentful": "^2.1.1",
     "gatsby-source-datocms": "^2.1.10",
     "gatsby-transformer-remark": "^2.5.0",
     "gatsby-transformer-sharp": "^2.2.0",
