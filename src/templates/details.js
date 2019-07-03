@@ -2,11 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Typography, Fab } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-import { HelmetDatoCms } from 'gatsby-source-datocms'
 import AddToCartIcon from '@material-ui/icons/AddShoppingCart'
 import classNames from 'classnames'
 import Img from 'gatsby-image'
-import RichTextConent from '../components/RichTextContent'
+import RichTextContent from '../components/RichTextContent'
+import SEO from '../components/SEO'
 
 const styles = theme => ({
   iconLeft: {
@@ -22,18 +22,18 @@ const styles = theme => ({
     marginLeft: -theme.spacing.unit * 3,
     marginRight: -theme.spacing.unit * 3,
     marginBottom: theme.spacing.unit * 3,
-    maxHeight: 250
+    maxHeight: 250,
   },
 })
 
 const DetailPage = ({ classes, data: { product } }) => {
   return (
     <article>
-      <HelmetDatoCms seo={product.seoMetaTags} />
-      <Img className={classes.hero} fluid={product.images[0].sizes} />
+      <SEO metadata={product.seoMetadata} />
+      <Img className={classes.hero} fluid={product.images[0].fluid} />
       <Typography variant="h3">{product.title}</Typography>
-      <RichTextConent
-        htmlContent={product.detailsNode.childMarkdownRemark.html}
+      <RichTextContent
+        htmlContent={product.detailedDescription.childMarkdownRemark.html}
       />
       <Fab
         component="a"
@@ -43,7 +43,7 @@ const DetailPage = ({ classes, data: { product } }) => {
         className={classNames(classes.fab, 'Product', 'snipcart-add-item')}
         data-item-id={product.id}
         data-item-price={product.price}
-        data-item-image={product.images[0].sizes.src}
+        data-item-image={product.images[0].fluid.src}
         data-item-name={product.title}
         data-item-url="/"
       >
@@ -58,22 +58,28 @@ export default withStyles(styles)(DetailPage)
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    product: datoCmsProduct(slug: { eq: $slug }) {
+    product: contentfulProduct(slug: { eq: $slug }) {
       id
       title
       price
-      images {
-        sizes(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-          ...GatsbyDatoCmsSizes
+      images: image {
+        fluid(maxWidth: 850, resizingBehavior: SCALE) {
+          ...GatsbyContentfulFluid_tracedSVG
         }
       }
-      detailsNode {
+      detailedDescription {
         childMarkdownRemark {
           html
         }
       }
-      seoMetaTags {
-        ...GatsbyDatoCmsSeoMetaTags
+      seoMetadata {
+        title
+        description
+        image {
+          resize(width: 600, height: 600) {
+            src
+          }
+        }
       }
     }
   }
