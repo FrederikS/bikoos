@@ -1,5 +1,7 @@
 
 Todo:
+  ☐ CMS migration datocms -> contentful
+  ☐ favicon / webmanifest
   ☐ migrate to material-ui v4
   ☐ rich text styling
   ✔ SEO @done(18-12-29 22:17)
