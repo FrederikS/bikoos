@@ -6,8 +6,8 @@ import Img from 'gatsby-image'
 import Avatar from '@material-ui/core/Avatar'
 import Typography from '@material-ui/core/Typography'
 import Hidden from '@material-ui/core/Hidden'
-import { HelmetDatoCms } from 'gatsby-source-datocms'
 import RichTextContent from '../components/RichTextContent'
+import SEO from '../components/SEO'
 
 const styles = theme => ({
   root: {
@@ -29,7 +29,7 @@ const styles = theme => ({
 const AboutPage = ({ classes, data: { about } }) => {
   return (
     <React.Fragment>
-      <HelmetDatoCms seo={about.seoMetaTags} />
+      <SEO metadata={about.seoMetadata} />
       <Grid container>
         <Grid container spacing={16} alignItems="center">
           <Hidden only="xs">
@@ -40,13 +40,16 @@ const AboutPage = ({ classes, data: { about } }) => {
               <Avatar
                 className={classes.avatar}
                 component={Img}
-                fluid={about.avatar.sizes}
+                fluid={about.modules[0].image.fluid}
               />
             </Grid>
           </Hidden>
           <Hidden smUp>
             <Grid item xs={12}>
-              <Img className={classes.hero} fluid={about.avatar.sizes} />
+              <Img
+                className={classes.hero}
+                fluid={about.modules[0].image.fluid}
+              />
             </Grid>
             <Grid item xs={12}>
               <Typography variant="h3">About Me</Typography>
@@ -55,7 +58,7 @@ const AboutPage = ({ classes, data: { about } }) => {
         </Grid>
         <Grid item xs={12}>
           <RichTextContent
-            htmlContent={about.descriptionNode.childMarkdownRemark.html}
+            htmlContent={about.modules[1].text.childMarkdownRemark.html}
           />
         </Grid>
       </Grid>
@@ -67,19 +70,26 @@ export default withStyles(styles)(AboutPage)
 
 export const query = graphql`
   query {
-    about: datoCmsAbout {
-      avatar {
-        sizes(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
-          ...GatsbyDatoCmsSizes
-        }
+    about: contentfulPage(type: { eq: "About" }) {
+      seoMetadata {
+        title
+        description
       }
-      descriptionNode {
-        childMarkdownRemark {
-          html
+      modules {
+        ... on ContentfulHero {
+          image {
+            fluid(maxWidth: 600, resizingBehavior: SCALE) {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
         }
-      }
-      seoMetaTags {
-        ...GatsbyDatoCmsSeoMetaTags
+        ... on ContentfulRichtext {
+          text {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
       }
     }
   }
