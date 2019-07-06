@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import { StaticQuery, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
 import AppBar from './AppBar'
 import SEO from './SEO'
 
@@ -28,14 +27,6 @@ const LayoutWithBasicSeo = props => (
 const Layout = ({ classes, children, data, seo }) => {
   return (
     <AppBar>
-      <Helmet>
-        <link
-          rel="icon"
-          type="image/png"
-          href={data.contentfulAsset.fixed.src}
-          sizes="16x16"
-        />
-      </Helmet>
       <SEO metadata={data.contentfulPage.seoMetadata} />
       <main className={classes.root}>{children}</main>
     </AppBar>
@@ -54,11 +45,6 @@ const globalSeoQuery = graphql`
       seoMetadata {
         title
         description
-      }
-    }
-    contentfulAsset(title: { eq: "favicon" }) {
-      fixed(height: 16, width: 16) {
-        src
       }
     }
   }
