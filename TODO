@@ -1,7 +1,7 @@
 
 Todo:
-  ☐ CMS migration datocms -> contentful
-  ☐ noindex nofollow
+  ✔ CMS migration datocms -> contentful @done(19-07-06 15:21)
+  ✔ noindex nofollow @done(19-07-06 15:21)
   ☐ bikoos branding
   ✔ favicon / webmanifest @done(19-07-06 15:00)
   ☐ mail contact button

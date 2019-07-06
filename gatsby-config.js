@@ -43,7 +43,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `standalone`,
-        icon: `src/images/favicon.png`
+        icon: `src/images/favicon.png`,
       },
     },
     {
@@ -51,6 +51,11 @@ module.exports = {
       options: {
         // Add any options here
         theme: {
+          palette: {
+            primary: {
+              main: '#293133',
+            },
+          },
           typography: {
             // In Japanese the characters are usually larger.
             useNextVariants: true,
