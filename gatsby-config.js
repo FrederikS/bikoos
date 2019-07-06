@@ -30,7 +30,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-shop-poc`,
-        short_name: `shpoc`,
+        short_name: process.env.GATSBY_NAME,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
