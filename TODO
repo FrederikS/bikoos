@@ -2,7 +2,7 @@
 Todo:
   ✔ CMS migration datocms -> contentful @done(19-07-06 15:21)
   ✔ noindex nofollow @done(19-07-06 15:21)
-  ☐ bikoos branding
+  ✔ bikoos branding @done(19-07-06 15:44)
   ✔ favicon / webmanifest @done(19-07-06 15:00)
   ☐ mail contact button
   ☐ migrate to material-ui v4
