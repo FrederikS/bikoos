@@ -4,7 +4,12 @@ import ProductList from '../components/ProductList'
 
 const IndexPage = ({ data }) => {
   return (
-    <ProductList products={data.allDatoCmsProduct.edges.map(e => e.node)} />
+    <ProductList
+      products={data.allContentfulProduct.edges.map(e => ({
+        ...e.node,
+        excerpt: e.node.excerpt.excerpt,
+      }))}
+    />
   )
 }
 
@@ -12,17 +17,19 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    allDatoCmsProduct {
+    allContentfulProduct {
       edges {
         node {
           id
           title
-          excerpt
           slug
+          excerpt {
+            excerpt
+          }
           price
-          images {
-            sizes(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-              ...GatsbyDatoCmsSizes
+          images: image {
+            fluid(maxWidth: 345, resizingBehavior: SCALE) {
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }

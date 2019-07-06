@@ -102,7 +102,7 @@ class ResponsiveDrawer extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              Shpoc
+              {process.env.GATSBY_NAME}
             </Typography>
             <IconButton
               component="a"

@@ -1,15 +1,9 @@
 require('dotenv').config()
 
 module.exports = {
-  siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -25,7 +19,16 @@ module.exports = {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 600,
+              maxWidth: 650,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 650,
             },
           },
         ],
@@ -34,12 +37,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-shop-poc`,
-        short_name: `shpoc`,
+        name: process.env.GATSBY_NAME,
+        short_name: process.env.GATSBY_NAME,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `standalone`,
+        icon: `src/images/favicon.png`,
       },
     },
     {
@@ -47,26 +51,17 @@ module.exports = {
       options: {
         // Add any options here
         theme: {
+          palette: {
+            primary: {
+              main: '#293133',
+            },
+          },
           typography: {
             // In Japanese the characters are usually larger.
             useNextVariants: true,
             fontSize: 16,
           },
         },
-      },
-    },
-    {
-      resolve: `gatsby-source-datocms`,
-      options: {
-        // You can find your read-only API token under the Settings > API tokens
-        // section of your administrative area:
-        apiToken: process.env.DATO_API_TOKEN,
-        // If you are working on development/staging environment, you might want to
-        // preview the latest version of records instead of the published one:
-        previewMode: process.env.DATO_PREVIEW_ENABLED,
-
-        // Disable automatic reloading of content when some change occurs on DatoCMS:
-        disableLiveReload: process.env.DATO_LIVE_RELOAD_DISABLED,
       },
     },
     {
@@ -85,5 +80,13 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
   ],
 }

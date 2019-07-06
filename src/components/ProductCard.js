@@ -36,7 +36,7 @@ const ProductCard = props => {
         <CardMedia
           className={classes.media}
           component={Img}
-          sizes={product.images[0].sizes}
+          fluid={product.images[0].fluid}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -58,7 +58,7 @@ const ProductCard = props => {
           )}
           data-item-id={product.id}
           data-item-price={product.price}
-          data-item-image={product.images[0].sizes.src}
+          data-item-image={product.images[0].fluid.src}
           data-item-name={product.title}
           data-item-url="/"
         >
