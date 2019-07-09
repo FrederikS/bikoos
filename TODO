@@ -4,6 +4,8 @@ Todo:
   ✔ noindex nofollow @done(19-07-06 15:21)
   ✔ bikoos branding @done(19-07-06 15:44)
   ✔ favicon / webmanifest @done(19-07-06 15:00)
+  ✔ cms images not visible @done(19-07-09 15:08)
+  ✔ cache bust pwa @done(19-07-09 15:08)
   ☐ mail contact button
   ☐ migrate to material-ui v4
   ☐ rich text styling

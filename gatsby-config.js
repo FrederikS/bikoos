@@ -26,7 +26,7 @@ module.exports = {
         name: process.env.GATSBY_NAME,
         short_name: process.env.GATSBY_NAME,
         start_url: `/`,
-        background_color: `#293133`,
+        background_color: `#ffffff`,
         theme_color: `#293133`,
         display: `standalone`,
         icon: `src/images/favicon.png`,
