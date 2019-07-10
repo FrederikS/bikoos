@@ -8,10 +8,10 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import AddToCartIcon from '@material-ui/icons/AddShoppingCart'
+import MessageIcon from '@material-ui/icons/Message'
 import Img from 'gatsby-image'
-import classNames from 'classnames'
 import { Link } from 'gatsby'
+import MessageLink from './MessageLink'
 
 const styles = theme => ({
   card: {
@@ -30,6 +30,7 @@ const styles = theme => ({
 
 const ProductCard = props => {
   const { classes, product } = props
+  const ProductMessageLink = MessageLink(Button)
   return (
     <Card className={classes.card}>
       <CardActionArea component={Link} to={`/details/${product.slug}`}>
@@ -46,25 +47,16 @@ const ProductCard = props => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button
+        <ProductMessageLink
           variant="outlined"
-          href="#"
+          product={product}
           size="small"
           color="primary"
-          className={classNames(
-            classes.buyButton,
-            'Product',
-            'snipcart-add-item'
-          )}
-          data-item-id={product.id}
-          data-item-price={product.price}
-          data-item-image={product.images[0].fluid.src}
-          data-item-name={product.title}
-          data-item-url="/"
+          className={classes.buyButton}
         >
-          <AddToCartIcon className={classes.iconLeft} />
+          <MessageIcon className={classes.iconLeft} />
           <Typography color="inherit">{product.price} €</Typography>
-        </Button>
+        </ProductMessageLink>
       </CardActions>
     </Card>
   )

@@ -51,13 +51,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-snipcart',
-      options: {
-        apiKey: process.env.SNIPCART_API_TOKEN,
-        autopop: true,
-      },
-    },
-    {
       resolve: `gatsby-plugin-layout`,
       options: {
         component: require.resolve(`./src/components/Layout`),

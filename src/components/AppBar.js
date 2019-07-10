@@ -11,13 +11,10 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import MenuIcon from '@material-ui/icons/Menu'
-import CartIcon from '@material-ui/icons/ShoppingCart'
 import Toolbar from '@material-ui/core/Toolbar'
-import Badge from '@material-ui/core/Badge'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 import { Link } from 'gatsby'
-import classNames from 'classnames'
 
 const drawerWidth = 240
 
@@ -104,21 +101,6 @@ class ResponsiveDrawer extends React.Component {
             <Typography variant="h6" color="inherit" noWrap>
               {process.env.GATSBY_NAME}
             </Typography>
-            <IconButton
-              component="a"
-              className={classNames(classes.cartIcon, 'snipcart-checkout')}
-              color="inherit"
-            >
-              <div className="snipcart-summary">
-                <Badge
-                  component="span"
-                  classes={{ badge: 'snipcart-total-items' }}
-                  color="secondary"
-                >
-                  <CartIcon />
-                </Badge>
-              </div>
-            </IconButton>
           </Toolbar>
         </AppBar>
         <nav>

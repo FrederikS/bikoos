@@ -2,11 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Typography, Fab } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-import AddToCartIcon from '@material-ui/icons/AddShoppingCart'
-import classNames from 'classnames'
+import MessageIcon from '@material-ui/icons/Message'
 import Img from 'gatsby-image'
 import RichTextContent from '../components/RichTextContent'
 import SEO from '../components/SEO'
+import MessageLink from '../components/MessageLink'
 
 const styles = theme => ({
   iconLeft: {
@@ -27,6 +27,7 @@ const styles = theme => ({
 })
 
 const DetailPage = ({ classes, data: { product } }) => {
+  const ProductMessageLink = MessageLink(Fab)
   return (
     <article>
       <SEO metadata={product.seoMetadata} />
@@ -35,21 +36,16 @@ const DetailPage = ({ classes, data: { product } }) => {
       <RichTextContent
         htmlContent={product.detailedDescription.childMarkdownRemark.html}
       />
-      <Fab
+      <ProductMessageLink
         component="a"
         variant="extended"
-        href="#"
+        product={product}
         color="primary"
-        className={classNames(classes.fab, 'Product', 'snipcart-add-item')}
-        data-item-id={product.id}
-        data-item-price={product.price}
-        data-item-image={product.images[0].fluid.src}
-        data-item-name={product.title}
-        data-item-url="/"
+        className={classes.fab}
       >
-        <AddToCartIcon className={classes.iconLeft} />
+        <MessageIcon className={classes.iconLeft} />
         <Typography color="inherit">{product.price} €</Typography>
-      </Fab>
+      </ProductMessageLink>
     </article>
   )
 }
