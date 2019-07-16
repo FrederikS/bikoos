@@ -6,26 +6,26 @@ Todo:
   ✔ favicon / webmanifest @done(19-07-06 15:00)
   ✔ cms images not visible @done(19-07-09 15:08)
   ✔ cache bust pwa @done(19-07-09 15:08)
-  ☐ mail contact button
+  ✔ mail contact button @done(19-07-16 13:01)
+  ☐ mail contact in chrome
   ☐ migrate to material-ui v4
   ☐ rich text styling
+  ☐ categories
+  ☐ search
   ✔ SEO @done(18-12-29 22:17)
-  ☐ Product detail page
+  ✔ Product detail page @done(19-07-16 13:21)
   ☐ transitions
   ☐ content links
   ✔ cart in app bar @done(18-12-30 17:50)
   ☐ reduce number of js files
   ☐ offline plugin + add app consent
   ☐ detail page image gallery
-  ☐ get rid of jquery? (snipcart alternative)
+  ✔ get rid of jquery? (snipcart alternative) @done(19-07-16 13:20)
   ☐ SEO fixes (page structure, image alt tags/captions, keywords.., lang)
   ☐ purge css plugin
-  ☐ order mail notifications
   ✔ price in product cards @done(18-12-30 17:50)
   ☐ activate http 2
   ☐ remove console warn error
   ✔ cart state when moving between pages @done(18-12-31 12:44)
-  ☐ SSR
-  ☐ cart with 0 items should be invisible
-  ☐ remark images from cms
+  ✔ remark images from cms @done(19-07-16 13:21)
 
