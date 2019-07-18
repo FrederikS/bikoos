@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/styles'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardActions from '@material-ui/core/CardActions'
@@ -21,7 +21,7 @@ const styles = theme => ({
     height: 250,
   },
   iconLeft: {
-    marginRight: theme.spacing.unit,
+    marginRight: theme.spacing(1),
   },
   buyButton: {
     marginLeft: 'auto',

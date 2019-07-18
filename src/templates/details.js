@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Typography, Fab } from '@material-ui/core'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/styles'
 import MessageIcon from '@material-ui/icons/Message'
 import Img from 'gatsby-image'
 import RichTextContent from '../components/RichTextContent'
@@ -10,18 +10,18 @@ import MessageLink from '../components/MessageLink'
 
 const styles = theme => ({
   iconLeft: {
-    marginRight: theme.spacing.unit,
+    marginRight: theme.spacing(1),
   },
   fab: {
     position: 'fixed',
-    bottom: theme.spacing.unit * 3,
-    right: theme.spacing.unit * 3,
+    bottom: theme.spacing(3),
+    right: theme.spacing(3),
   },
   hero: {
-    marginTop: -theme.spacing.unit * 3,
-    marginLeft: -theme.spacing.unit * 3,
-    marginRight: -theme.spacing.unit * 3,
-    marginBottom: theme.spacing.unit * 3,
+    marginTop: -theme.spacing(3),
+    marginLeft: -theme.spacing(3),
+    marginRight: -theme.spacing(3),
+    marginBottom: theme.spacing(3),
     maxHeight: 250,
   },
 })

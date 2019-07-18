@@ -1,16 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles, ThemeProvider } from '@material-ui/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
+import grey from '@material-ui/core/colors/grey'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import AppBar from './AppBar'
 import SEO from './SEO'
+
+const theme = responsiveFontSizes(
+  createMuiTheme({
+    palette: {
+      primary: {
+        main: grey[800],
+      },
+    },
+  })
+)
 
 const styles = () => ({
   root: {
     flexGrow: 1,
     padding: '80px 20px',
     maxWidth: '800px',
+    margin: 'auto',
   },
 })
 
@@ -25,15 +39,18 @@ const LayoutWithBasicSeo = props => (
   />
 )
 
-const Layout = ({ classes, children, data, seo }) => {
+const Layout = ({ classes, children, data }) => {
   return (
-    <AppBar>
-      <Helmet>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
-      <SEO metadata={data.contentfulPage.seoMetadata} />
-      <main className={classes.root}>{children}</main>
-    </AppBar>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <AppBar>
+        <Helmet>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+        <SEO metadata={data.contentfulPage.seoMetadata} />
+        <main className={classes.root}>{children}</main>
+      </AppBar>
+    </ThemeProvider>
   )
 }
 
