@@ -34,12 +34,17 @@ const ProductList = ({ products }) => {
   ))
 
   return (
-    <Grid container direction="row" justify="center" spacing={4}>
-      <Grid item xs={12} sm={6}>
-        <GridColumn even products={evenItems} />
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <GridColumn products={oddItems} />
+    <Grid container direction="column" spacing={4}>
+      <Grid item />
+      <Grid item>
+        <Grid container direction="row" justify="center" spacing={4}>
+          <Grid item xs={12} sm={6}>
+            <GridColumn even products={evenItems} />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <GridColumn products={oddItems} />
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   )

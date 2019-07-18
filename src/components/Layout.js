@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { withStyles, ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
-import grey from '@material-ui/core/colors/grey'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import AppBar from './AppBar'
@@ -13,7 +12,7 @@ const theme = responsiveFontSizes(
   createMuiTheme({
     palette: {
       primary: {
-        main: grey[800],
+        main: '#293133',
       },
     },
   })
@@ -22,7 +21,7 @@ const theme = responsiveFontSizes(
 const styles = () => ({
   root: {
     flexGrow: 1,
-    padding: '80px 20px',
+    padding: '0px 20px',
     maxWidth: '800px',
     margin: 'auto',
   },

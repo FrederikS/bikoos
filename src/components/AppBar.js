@@ -13,14 +13,35 @@ import MenuIcon from '@material-ui/icons/Menu'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/styles'
+import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 import { Link } from 'gatsby'
 
 const drawerWidth = 240
 
+const ElevationScroll = props => {
+  const { children, window } = props
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+    target: window ? window() : undefined,
+  })
+
+  return React.cloneElement(children, {
+    elevation: trigger ? 4 : 0,
+  })
+}
+
+ElevationScroll.propTypes = {
+  children: PropTypes.node.isRequired,
+  // Injected by the documentation to work in an iframe.
+  // You won't need it on your project.
+  window: PropTypes.func,
+}
+
 const styles = theme => ({
-  root: {
-    display: 'flex',
-  },
   appBar: {
     marginLeft: drawerWidth,
   },
@@ -85,22 +106,24 @@ class ResponsiveDrawer extends React.Component {
     )
 
     return (
-      <div className={classes.root}>
-        <AppBar position="fixed" className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="Open drawer"
-              onClick={this.handleDrawerToggle}
-              className={classes.menuButton}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
-              {process.env.GATSBY_NAME}
-            </Typography>
-          </Toolbar>
-        </AppBar>
+      <React.Fragment>
+        <ElevationScroll {...this.props}>
+          <AppBar className={classes.appBar}>
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="Open drawer"
+                onClick={this.handleDrawerToggle}
+                className={classes.menuButton}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" color="inherit" noWrap>
+                {process.env.GATSBY_NAME}
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </ElevationScroll>
         <nav>
           {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
           <SwipeableDrawer
@@ -119,8 +142,9 @@ class ResponsiveDrawer extends React.Component {
             {drawer}
           </SwipeableDrawer>
         </nav>
+        <Toolbar />
         {children}
-      </div>
+      </React.Fragment>
     )
   }
 }

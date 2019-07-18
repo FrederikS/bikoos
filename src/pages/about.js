@@ -30,36 +30,39 @@ const AboutPage = ({ classes, data: { about } }) => {
   return (
     <React.Fragment>
       <SEO metadata={about.seoMetadata} />
-      <Grid container>
-        <Grid container spacing={12} alignItems="center">
-          <Hidden only="xs">
-            <Grid item xs={8}>
-              <Typography variant="h1">About Me</Typography>
-            </Grid>
-            <Grid item xs={4}>
-              <Avatar
-                className={classes.avatar}
-                component={Img}
-                fluid={about.modules[0].image.fluid}
-              />
-            </Grid>
-          </Hidden>
-          <Hidden smUp>
-            <Grid item xs={12}>
-              <Img
-                className={classes.hero}
-                fluid={about.modules[0].image.fluid}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="h3">About Me</Typography>
-            </Grid>
-          </Hidden>
-        </Grid>
-        <Grid item xs={12}>
-          <RichTextContent
-            htmlContent={about.modules[1].text.childMarkdownRemark.html}
-          />
+      <Grid container spacing={4}>
+        <Grid item />
+        <Grid item>
+          <Grid container spacing={12} alignItems="center">
+            <Hidden only="xs">
+              <Grid item xs={8}>
+                <Typography variant="h1">About Me</Typography>
+              </Grid>
+              <Grid item xs={4}>
+                <Avatar
+                  className={classes.avatar}
+                  component={Img}
+                  fluid={about.modules[0].image.fluid}
+                />
+              </Grid>
+            </Hidden>
+            <Hidden smUp>
+              <Grid item xs={12}>
+                <Img
+                  className={classes.hero}
+                  fluid={about.modules[0].image.fluid}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="h3">About Me</Typography>
+              </Grid>
+            </Hidden>
+          </Grid>
+          <Grid item xs={12}>
+            <RichTextContent
+              htmlContent={about.modules[1].text.childMarkdownRemark.html}
+            />
+          </Grid>
         </Grid>
       </Grid>
     </React.Fragment>
