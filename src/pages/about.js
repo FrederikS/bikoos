@@ -31,7 +31,9 @@ const AboutPage = ({ classes, data: { about } }) => {
     <React.Fragment>
       <SEO metadata={about.seoMetadata} />
       <Grid container spacing={4}>
-        <Grid item />
+        <Hidden only="xs">
+          <Grid item />
+        </Hidden>
         <Grid item>
           <Grid container spacing={12} alignItems="center">
             <Hidden only="xs">
