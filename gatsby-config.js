@@ -32,24 +32,7 @@ module.exports = {
         icon: `src/images/favicon.png`,
       },
     },
-    {
-      resolve: `@wapps/gatsby-plugin-material-ui`,
-      options: {
-        // Add any options here
-        theme: {
-          palette: {
-            primary: {
-              main: '#293133',
-            },
-          },
-          typography: {
-            // In Japanese the characters are usually larger.
-            useNextVariants: true,
-            fontSize: 16,
-          },
-        },
-      },
-    },
+    `gatsby-plugin-material-ui`,
     {
       resolve: `gatsby-plugin-layout`,
       options: {
