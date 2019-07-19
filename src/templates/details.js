@@ -15,7 +15,7 @@ const styles = theme => ({
   fab: {
     position: 'fixed',
     left: '50%',
-    top: '93%',
+    bottom: theme.spacing(2),
     transform: 'translateX(-50%)',
   },
   hero: {
