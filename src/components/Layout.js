@@ -24,6 +24,7 @@ const styles = () => ({
     maxWidth: '800px',
     margin: 'auto',
     backgroundColor: '#ffffff',
+    minHeight: 'calc(100vh - 64px)',
   },
 })
 
