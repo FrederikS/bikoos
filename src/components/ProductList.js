@@ -9,33 +9,44 @@ const styles = theme => ({
       alignContent: 'center',
     },
   },
+  headline: {
+    textAlign: 'center',
+  },
 })
 
-const ProductList = ({ products }) => {
+const GridColumn = withStyles(styles)(({ classes, products, even }) => (
+  <Grid
+    container
+    direction="column"
+    justify="center"
+    alignItems="stretch"
+    alignContent={even ? 'flex-end' : 'flex-start'}
+    spacing={4}
+    className={classes.col}
+  >
+    {products.map(product => (
+      <Grid item key={product.title}>
+        <ProductCard product={product} />
+      </Grid>
+    ))}
+  </Grid>
+))
+
+const ProductList = ({ classes, products }) => {
   const evenItems = products.filter((_, index) => index % 2 === 0)
   const oddItems = products.filter((_, index) => index % 2 !== 0)
 
-  const GridColumn = withStyles(styles)(({ classes, products, even }) => (
+  return (
     <Grid
       container
       direction="column"
-      justify="center"
-      alignItems="stretch"
-      alignContent={even ? 'flex-end' : 'flex-start'}
       spacing={4}
-      className={classes.col}
+      justify="center"
+      alignContent="center"
     >
-      {products.map(product => (
-        <Grid item key={product.title}>
-          <ProductCard product={product} />
-        </Grid>
-      ))}
-    </Grid>
-  ))
-
-  return (
-    <Grid container direction="column" spacing={4}>
-      <Grid item />
+      <Grid item className={classes.headline}>
+        <h1>Alle Produkte</h1>
+      </Grid>
       <Grid item>
         <Grid container direction="row" justify="center" spacing={4}>
           <Grid item xs={12} sm={6}>
@@ -50,4 +61,4 @@ const ProductList = ({ products }) => {
   )
 }
 
-export default ProductList
+export default withStyles(styles)(ProductList)

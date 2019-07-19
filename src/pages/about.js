@@ -35,7 +35,7 @@ const AboutPage = ({ classes, data: { about } }) => {
           <Grid item />
         </Hidden>
         <Grid item>
-          <Grid container spacing={12} alignItems="center">
+          <Grid container spacing={1} alignItems="center">
             <Hidden only="xs">
               <Grid item xs={8}>
                 <Typography variant="h1">About Me</Typography>

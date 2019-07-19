@@ -20,10 +20,10 @@ const theme = responsiveFontSizes(
 
 const styles = () => ({
   root: {
-    flexGrow: 1,
     padding: '0px 20px',
     maxWidth: '800px',
     margin: 'auto',
+    backgroundColor: '#ffffff',
   },
 })
 
