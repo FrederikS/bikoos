@@ -13,9 +13,9 @@ const styles = theme => ({
     marginRight: theme.spacing(1),
   },
   fab: {
-    position: 'fixed',
-    bottom: theme.spacing(3),
-    right: theme.spacing(3),
+    position: 'sticky',
+    marginRight: theme.spacing(3),
+    float: 'right',
   },
   hero: {
     marginLeft: -theme.spacing(3),
@@ -23,12 +23,15 @@ const styles = theme => ({
     marginBottom: theme.spacing(3),
     maxHeight: 250,
   },
+  article: {
+    paddingBottom: theme.spacing(8)
+  }
 })
 
 const DetailPage = ({ classes, data: { product } }) => {
   const ProductMessageLink = MessageLink(Fab)
   return (
-    <article>
+    <article className={classes.article}>
       <SEO metadata={product.seoMetadata} />
       <Img className={classes.hero} fluid={product.images[0].fluid} />
       <Typography variant="h3">{product.title}</Typography>
