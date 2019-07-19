@@ -13,9 +13,10 @@ const styles = theme => ({
     marginRight: theme.spacing(1),
   },
   fab: {
-    position: 'sticky',
-    marginRight: theme.spacing(3),
-    float: 'right',
+    position: 'fixed',
+    left: '50%',
+    top: '93%',
+    transform: 'translateX(-50%)',
   },
   hero: {
     marginLeft: -theme.spacing(3),
@@ -24,8 +25,8 @@ const styles = theme => ({
     maxHeight: 250,
   },
   article: {
-    paddingBottom: theme.spacing(8)
-  }
+    paddingBottom: theme.spacing(8),
+  },
 })
 
 const DetailPage = ({ classes, data: { product } }) => {
