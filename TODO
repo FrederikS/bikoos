@@ -7,8 +7,11 @@ Todo:
   ✔ cms images not visible @done(19-07-09 15:08)
   ✔ cache bust pwa @done(19-07-09 15:08)
   ✔ mail contact button @done(19-07-16 13:01)
-  ☐ mail contact in chrome
-  ☐ migrate to material-ui v4
+  ✔ mail contact in chrome @done(19-07-21 14:56)
+  ✔ migrate to material-ui v4 @done(19-07-21 14:56)
+  ☐ Footer
+  ☐ AppBar desktop
+  ☐ image gallery
   ☐ rich text styling
   ☐ categories
   ☐ search

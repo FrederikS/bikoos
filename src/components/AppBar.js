@@ -59,6 +59,10 @@ const styles = theme => ({
   cartIcon: {
     marginLeft: 'auto',
   },
+  homeLink: {
+    textDecoration: 'none',
+    color: 'inherit',
+  }
 })
 
 class ResponsiveDrawer extends React.Component {
@@ -118,9 +122,11 @@ class ResponsiveDrawer extends React.Component {
               >
                 <MenuIcon />
               </IconButton>
-              <Typography variant="h6" color="inherit" noWrap>
-                {process.env.GATSBY_NAME}
-              </Typography>
+              <Link to="/" className={classes.homeLink}>
+                <Typography variant="h6" color="inherit" noWrap>
+                  {process.env.GATSBY_NAME}
+                </Typography>
+              </Link>
             </Toolbar>
           </AppBar>
         </ElevationScroll>
