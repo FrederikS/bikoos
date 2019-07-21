@@ -6,6 +6,7 @@ const MessageLink = ButtonComponent => ({ product, children, ...props }) => {
   return (
     <ButtonComponent
       href={`mailto:${process.env.GATSBY_MAIL_CONTACT}?subject=${subject}`}
+      target="_blank"
       {...props}
     >
       {children}
