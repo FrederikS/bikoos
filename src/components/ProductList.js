@@ -1,6 +1,7 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
 import ProductCard from './ProductCard'
 
 const styles = theme => ({
@@ -11,6 +12,10 @@ const styles = theme => ({
   },
   headline: {
     textAlign: 'center',
+  },
+  rootContainer: {
+    marginTop: '0px',
+    marginBottom: '0px',
   },
 })
 
@@ -40,12 +45,15 @@ const ProductList = ({ classes, products }) => {
     <Grid
       container
       direction="column"
-      spacing={4}
       justify="center"
       alignContent="center"
+      spacing={4}
+      className={classes.rootContainer}
     >
       <Grid item className={classes.headline}>
-        <h1>Alle Produkte</h1>
+        <Typography variant="h3" component="h1">
+          Alle Produkte
+        </Typography>
       </Grid>
       <Grid item>
         <Grid container direction="row" justify="center" spacing={4}>
